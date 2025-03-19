@@ -13,4 +13,4 @@ consume_messages(kafka_config, topic, num_messages)
 
 Input: A dictionary with Kafka configuration, a topic name, and the expected number of messages to consume.
 Output: A list of messages consumed from the topic.
-They should also include a main block that optionally demonstrates these functions
+They should also include a main block that optionally demonstrates these functions.
