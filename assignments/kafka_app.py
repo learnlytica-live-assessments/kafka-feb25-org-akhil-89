@@ -6,7 +6,12 @@ def produce_messages(kafka_config, topic, messages):
     """
     Produce messages to the specified Kafka topic.
     """
-
+    producer = KafkaProducer(bootstrap_servers=kafka_config["bootstrap.servers"],
+                             value_serializer=lambda v: v.encode('utf-8'))
+    for msg in messages:
+        producer.send(topic, value=msg)
+    producer.flush()
+    producer.close()
     return True
 
 def consume_messages(kafka_config, topic, num_messages):
